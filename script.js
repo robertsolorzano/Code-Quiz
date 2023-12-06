@@ -57,10 +57,11 @@ const questions = [
   ];
   
 
-
 //Add Event listener
 startButton.addEventListener('click', function() {
-console.log('Game has commnenced')
+console.log('Game has commenced')
+currentQuestionIndex = 0;
+displayQuestion();
 })
 
 
@@ -90,6 +91,24 @@ function displayQuestion() {
         quizContainer.appendChild(choiceButton);
     });
 }
+
+
+function handleChoiceSelection(choiceIndex) {
+    if (choiceIndex === questions [currentQuestionIndex].answer) {
+        //correct logic i will add later
+    } else {
+        //incorrect logic i will add later
+    }
+
+    //advancning to next question
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        //End quiz logic i will add later
+    }
+}
+
 
 
 
