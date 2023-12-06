@@ -2,3 +2,11 @@
     text-align: center;
 }
 
+#viewHighScores {
+    margin-top: 10px;
+}
+
+#timerDisplay {
+    margin-top: 10px; 
+    font-size: 20px;
+}

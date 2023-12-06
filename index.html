@@ -9,9 +9,18 @@
 </head>
 <body>
 
-    <!-- High Scores Link/Button -->
     <div class="container mt-3">
-        <button id="viewHighScores" class="btn btn-info">View High Scores</button>
+        <div class="row">
+            <!-- High Scores Button -->
+            <div class="col">
+                <button id="viewHighScores" class="btn btn-info float-left">View High Scores</button>
+            </div>
+            
+            <!-- Timer -->
+            <div class="col">
+                <h2 id="timerDisplay" class="text-right float-right">Time Left: <span id="time">60</span> seconds</h2>
+            </div>
+        </div>
     </div>
     
     <!-- High Scores Section -->
@@ -23,13 +32,6 @@
     <!--Added Boostrap strcuture with with classes-->
     <!-- Main Container -->
     <div class="container mt-5">
-
-        <!-- Timer -->
-        <div class="row">
-            <div class="col text-center">
-                <h2 id="timerDisplay">Time Left: <span id="time">60</span> seconds</h2>
-            </div>
-        </div>
 
         <!-- Quiz Container -->
         <div class="row mt-4">

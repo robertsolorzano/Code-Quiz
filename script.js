@@ -216,3 +216,36 @@ document.getElementById('initialsInput').addEventListener('input', function(even
     }
 });
 
+
+//function to handle clicking on high score button
+document.getElementById('viewHighScores').addEventListener('click', function() {
+    var highScoresContainer = document.getElementById('highScoresContainer');
+    var isDisplayed = highScoresContainer.style.display === 'block';
+    highScoresContainer.style.display = isDisplayed ? 'none' : 'block';
+
+    if (!isDisplayed) {
+        displayHighScores(); // Call function to display high scores
+    }
+});
+
+//displaying high scores
+function displayHighScores() {
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var highScoresList = document.getElementById('highScoresList');
+
+    // Clear existing list items
+    highScoresList.innerHTML = '';
+
+    // Sort high scores if needed
+    highScores.sort((a, b) => b.score - a.score);
+
+    // Create a list item for each high score and append to the list
+    highScores.forEach(function(score) {
+        var listItem = document.createElement('li');
+        listItem.textContent = `${score.initials}: ${score.score}`;
+        listItem.classList.add('list-group-item');
+        highScoresList.appendChild(listItem);
+    });
+}
+
+
