@@ -7,7 +7,7 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    
+
     <!-- Timer Container -->
     <div id="timerDisplay">Time Left: <span id="time">60</span> seconds</div>
 
@@ -15,7 +15,13 @@
     <button id="startButton">Start Quiz</button>
     <div id="quizContainer"></div>
 
-
+    <!-- Hidden modal for user input at end of quiz -->
+    <div id="scoreModal" style="display: none;">
+        <p>Your score: <span id="finalScore"></span></p>
+        <input type="text" id="initialsInput" placeholder="Enter initials">
+        <button id="saveScoreButton">Save Score</button>
+    </div>
+    
 
     <script src="script.js"></script>
 </body>

@@ -7,6 +7,7 @@ var timeLeft = totalTime;
 var timerInterval;
 
 
+//timer function
 function startTimer() {
     timerInterval = setInterval(function(){
         timeLeft--;
@@ -17,31 +18,6 @@ function startTimer() {
             endQuiz();
         }
     }, 1000);
-}
-
-
-function endQuiz() {
-    clearInterval(timerInterval);
-
-    var quizContainer = document.getElementById('quizContainer');
-    quizContainer.innerHTML = '';
-
-    //Display end of quiz message and score
-    var endMessage = document.createElement('p');
-    endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
-    quizContainer.appendChild(endMessage);
-
-    //add restart button
-    var restartButton = document.createElement('button');
-    restartButton.textContent = 'Restart Quiz';
-    restartButton.addEventListener('click', function() {
-        console.log('Game has restarted')
-        currentQuestionIndex = 0;
-        timeLeft = totalTime;
-        startTimer();
-        displayQuestion(); 
-    });
-    quizContainer.appendChild(restartButton);
 }
 
 
@@ -173,3 +149,57 @@ function moveToNextQuestion() {
        endQuiz();
     }
 }
+
+
+//End quiz function
+function endQuiz() {
+    clearInterval(timerInterval);
+
+    document.getElementById('finalScore').textContent = score;
+    var scoreModal = document.getElementById('scoreModal');
+    scoreModal.style.display = 'block';
+
+    var quizContainer = document.getElementById('quizContainer');
+    quizContainer.innerHTML = '';
+
+    //Display end of quiz message and score
+    var endMessage = document.createElement('p');
+    endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
+    quizContainer.appendChild(endMessage);
+
+    //add restart button
+    var restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart Quiz';
+    restartButton.addEventListener('click', function() {
+        console.log('Game has restarted')
+        currentQuestionIndex = 0;
+        timeLeft = totalTime;
+        startTimer();
+        displayQuestion(); 
+    });
+    quizContainer.appendChild(restartButton);
+}
+
+
+//save score function
+function saveScore(initials, score) {
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var newScore = { initials: initials, score: score };
+
+    highScores.push(newScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+
+//User interaction/initals input event listener
+document.getElementById('saveScoreButton').addEventListener('click', function() {
+    var userInitials = document.getElementById('initialsInput').value;
+    if (userInitials) {
+        saveScore(userInitials, score); // Ensure saveScore is defined
+        document.getElementById('scoreModal').style.display = 'none';
+    } else {
+        console.log('no initals entered')
+    }
+});
+
+
