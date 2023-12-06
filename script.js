@@ -167,19 +167,7 @@ function endQuiz() {
     endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
     quizContainer.appendChild(endMessage);
 
-    //add restart button
-    var restartButton = document.createElement('button');
-    restartButton.textContent = 'Restart Quiz';
-    restartButton.addEventListener('click', function() {
-        console.log('Game has restarted')
-        currentQuestionIndex = 0;
-        timeLeft = totalTime;
-        startTimer();
-        displayQuestion(); 
-    });
-    quizContainer.appendChild(restartButton);
 }
-
 
 //save score function
 function saveScore(initials, score) {

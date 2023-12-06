@@ -4,25 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Code Quiz</title>
 </head>
 <body>
+    <!--Added Boostrap strcuture with with classes-->
+    <!-- Main Container -->
+    <div class="container mt-5">
 
-    <!-- Timer Container -->
-    <div id="timerDisplay">Time Left: <span id="time">60</span> seconds</div>
+        <!-- Timer -->
+        <div class="row">
+            <div class="col text-center">
+                <h2 id="timerDisplay">Time Left: <span id="time">60</span> seconds</h2>
+            </div>
+        </div>
 
-    <!-- Button Container -->
-    <button id="startButton">Start Quiz</button>
-    <div id="quizContainer"></div>
+        <!-- Quiz Container -->
+        <div class="row mt-4">
+            <div class="col-md-8 offset-md-2">
+                <button id="startButton" class="btn btn-primary btn-lg btn-block">Start Quiz</button>
+                <div id="quizContainer" class="mt-4"></div>
+            </div>
+        </div>
 
-    <!-- Hidden modal for user input at end of quiz -->
-    <div id="scoreModal" style="display: none;">
-        <p>Your score: <span id="finalScore"></span></p>
-        <input type="text" id="initialsInput" placeholder="Enter initials">
-        <button id="saveScoreButton" disabled>Save Score</button>
-    </div>
+        <!-- Score Modal -->
+        <div id="scoreModal" class="modal" tabindex="-1" role="dialog" style="display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Quiz Completed!</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your score: <span id="finalScore"></span></p>
+                        <input type="text" id="initialsInput" class="form-control" placeholder="Enter initials">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="saveScoreButton" class="btn btn-primary" disabled>Save Score</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
     
-
     <script src="script.js"></script>
 </body>
+
 </html>
