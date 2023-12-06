@@ -85,19 +85,28 @@ function displayQuestion() {
 
         //Attach an evenet listener to handle choice
         choiceButton.addEventListener('click', function() {
-            handleChoiceSelection(index);
+            handleChoiceSelection(index, choiceButton);
         });
         
         quizContainer.appendChild(choiceButton);
     });
 }
 
+//initalize a score
+var score = 0; 
 
-function handleChoiceSelection(choiceIndex) {
+function handleChoiceSelection(choiceIndex, choiceButton) {
     if (choiceIndex === questions [currentQuestionIndex].answer) {
-        //correct logic i will add later
+        score++
+        choiceButton.classList.add('correct-answer');
+        setTimeout(function(){
+            choiceButton.classList.remove('correct-answer');
+            moveToNextQuestion();
+        });
     } else {
-        //incorrect logic i will add later
+        choiceButton.classList.add('incorrect-answer');
+        //apply penalalty to timer
+        //add feedback for incorrect
     }
 
     //advancning to next question
@@ -106,6 +115,7 @@ function handleChoiceSelection(choiceIndex) {
         displayQuestion();
     } else {
         //End quiz logic i will add later
+        //Display final score 
     }
 }
 
