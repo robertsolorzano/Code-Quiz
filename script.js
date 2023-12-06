@@ -24,6 +24,7 @@ function startTimer() {
 //Main Event listener
 startButton.addEventListener('click', function() {
 console.log('Game has commenced')
+startButton.style.display = 'none' //hiding start button once quiz starts
 currentQuestionIndex = 0;
 timeLeft = totalTime;
 startTimer();
@@ -167,6 +168,7 @@ function moveToNextQuestion() {
 //End quiz function
 function endQuiz() {
     clearInterval(timerInterval);
+    startButton.style.display = 'block'; //display start button when quiz ends
 
     document.getElementById('finalScore').textContent = score;
     var scoreModal = document.getElementById('scoreModal');
@@ -176,8 +178,9 @@ function endQuiz() {
     quizContainer.innerHTML = '';
 
     //Display end of quiz message and score
-    var endMessage = document.createElement('p');
+    var endMessage = document.createElement('h5');
     endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
+    endMessage.classList.add('centered-text');
     quizContainer.appendChild(endMessage);
 }
 
