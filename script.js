@@ -1,6 +1,21 @@
 //Select the start button
 var startButton = document.getElementById('startButton');
 var currentQuestionIndex = 0;
+var totalTime = 60;
+var timeLeft = totalTime;
+var timerInterval;
+
+
+
+
+
+//Add Event listener
+startButton.addEventListener('click', function() {
+console.log('Game has commenced')
+currentQuestionIndex = 0;
+displayQuestion();
+})
+
 
 //Quiz questions in an array inside an object to be accesssed for the quiz
 const questions = [
@@ -56,15 +71,6 @@ const questions = [
     },
   ];
   
-
-//Add Event listener
-startButton.addEventListener('click', function() {
-console.log('Game has commenced')
-currentQuestionIndex = 0;
-displayQuestion();
-})
-
-
 //Display questions
 function displayQuestion() {
     var quizContainer = document.getElementById('quizContainer');
