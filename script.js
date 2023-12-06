@@ -203,3 +203,13 @@ document.getElementById('saveScoreButton').addEventListener('click', function() 
 });
 
 
+//Event listner to activate button when typing(input) occurs
+document.getElementById('initialsInput').addEventListener('input', function(event) {
+    var saveButton = document.getElementById('saveScoreButton');
+    if (event.target.value.trim() !== "") {
+        saveButton.disabled = false;
+    } else {
+        saveButton.disabled = true;
+    }
+});
+
