@@ -96,29 +96,30 @@ function displayQuestion() {
 var score = 0; 
 
 function handleChoiceSelection(choiceIndex, choiceButton) {
-    if (choiceIndex === questions [currentQuestionIndex].answer) {
-        score++
+    var isCorrect = choiceIndex === questions[currentQuestionIndex].answer;
+
+    if (isCorrect) {
+        score++;
         choiceButton.classList.add('correct-answer');
-        setTimeout(function(){
-            choiceButton.classList.remove('correct-answer');
-            moveToNextQuestion();
-        });
     } else {
         choiceButton.classList.add('incorrect-answer');
-        //apply penalalty to timer
-        //add feedback for incorrect
     }
 
-    //advancning to next question
+    //display feedback for a period of time
+    setTimeout(function() {
+        choiceButton.classList.remove(isCorrect ? 'correct-answer' : 'incorrect-answer');
+        moveToNextQuestion();
+    }, 600); // Delay of 600 milliseconds
+}
+
+//function to move to next questions
+function moveToNextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         displayQuestion();
     } else {
-        //End quiz logic i will add later
-        //Display final score 
+        // End of quiz logic
+        // Display final score
+        // Example: alert("Quiz over! Your score: " + score);
     }
 }
-
-
-
-
