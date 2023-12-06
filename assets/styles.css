@@ -1,7 +1,4 @@
-.correct-answer {
-    background-color: green;
+.centered-text {
+    text-align: center;
 }
 
-.incorrect-answer {
-    background-color: red;
-}
