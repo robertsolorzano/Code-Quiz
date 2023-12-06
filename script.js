@@ -1,5 +1,6 @@
 //Select the start button
 var startButton = document.getElementById('startButton');
+var currentQuestionIndex = 0;
 
 //Quiz questions in an array inside an object to be accesssed for the quiz
 const questions = [
@@ -55,9 +56,40 @@ const questions = [
     },
   ];
   
+
+
 //Add Event listener
 startButton.addEventListener('click', function() {
 console.log('Game has commnenced')
 })
 
-var currentQuestionIndex = 0;
+
+//Display questions
+function displayQuestion() {
+    var quizContainer = document.getElementById('quizContainer');
+    var questionObj = questions[currentQuestionIndex];
+
+    //clear prev content
+    quizContainer.innerHTML = '';
+
+    //create and append the question text
+    var questionElement = document.createElement('p');
+    questionElement.textContent = questionObj.question;
+    quizContainer.appendChild(questionElement);
+
+    //Loop through choices, create buttons for each
+    questionObj.choices.forEach(function(choice, index){
+        var choiceButton = document.createElement('button');
+        choiceButton.textContent = choice;
+
+        //Attach an evenet listener to handle choice
+        choiceButton.addEventListener('click', function() {
+            handleChoiceSelection(index);
+        });
+        
+        quizContainer.appendChild(choiceButton);
+    });
+}
+
+
+
