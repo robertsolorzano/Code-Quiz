@@ -86,25 +86,26 @@ const questions = [
   ];
   
 
-//Display questions
-function displayQuestion() {
+  function displayQuestion() {
     var quizContainer = document.getElementById('quizContainer');
     var questionObj = questions[currentQuestionIndex];
 
-    //clear prev content
+    //Clear previous content
     quizContainer.innerHTML = '';
 
-    //create and append the question text
-    var questionElement = document.createElement('p');
+    //Create and append the question text
+    var questionElement = document.createElement('h4');
     questionElement.textContent = questionObj.question;
+    questionElement.classList.add('mb-3'); 
     quizContainer.appendChild(questionElement);
 
-    //Loop through choices, create buttons for each
+    //Loop through choices, create styled buttons for each
     questionObj.choices.forEach(function(choice, index){
         var choiceButton = document.createElement('button');
         choiceButton.textContent = choice;
+        choiceButton.classList.add('btn', 'btn-outline-primary', 'btn-block', 'mb-2'); //Bootstrap button classes
 
-        //Attach an evenet listener to handle choice
+        //Attach an event listener to handle choice
         choiceButton.addEventListener('click', function() {
             handleChoiceSelection(index, choiceButton);
         });
@@ -113,18 +114,26 @@ function displayQuestion() {
     });
 }
 
-
+//Updated with bootstrap styling
 //Handles choice selection/conditionals for right and wrong
 function handleChoiceSelection(choiceIndex, choiceButton) {
     var isCorrect = choiceIndex === questions[currentQuestionIndex].answer;
 
+    //Temporarily disable all choice buttons to prevent multiple answers
+    var choiceButtons = document.querySelectorAll('#quizContainer button');
+    choiceButtons.forEach(function(button) {
+        button.disabled = true;
+    });
+
     if (isCorrect) {
         score++;
-        choiceButton.classList.add('correct-answer');
+        choiceButton.classList.remove('btn-outline-primary');
+        choiceButton.classList.add('btn-success');
     } else {
-        timeLeft -= 5;
+        timeLeft -= 5; //Subtract time for wrong answer
         document.getElementById('time').textContent = timeLeft;
-        choiceButton.classList.add('incorrect-answer');
+        choiceButton.classList.remove('btn-outline-primary');
+        choiceButton.classList.add('btn-danger'); 
 
         if (timeLeft <= 0) {
             endQuiz();
@@ -132,16 +141,19 @@ function handleChoiceSelection(choiceIndex, choiceButton) {
         }
     }
 
-    //display feedback for a period of time
+    //display feedback for a short period of time
     setTimeout(function() {
-        choiceButton.classList.remove(isCorrect ? 'correct-answer' : 'incorrect-answer');
         moveToNextQuestion();
-    }, 500); // Delay of 600 milliseconds
+    }, 600); // Delay of 1 second
 }
 
-
-//function to move to next questions
 function moveToNextQuestion() {
+    // Enable the buttons again for the next question
+    var choiceButtons = document.querySelectorAll('#quizContainer button');
+    choiceButtons.forEach(function(button) {
+        button.disabled = false;
+    });
+
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         displayQuestion();
@@ -149,6 +161,7 @@ function moveToNextQuestion() {
        endQuiz();
     }
 }
+
 
 
 //End quiz function
@@ -166,7 +179,6 @@ function endQuiz() {
     var endMessage = document.createElement('p');
     endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
     quizContainer.appendChild(endMessage);
-
 }
 
 //save score function
