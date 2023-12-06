@@ -5,7 +5,22 @@ var totalTime = 60;
 var timeLeft = totalTime;
 var timerInterval;
 
+function startTimer() {
+    timerInterval = setInterval(function(){
+        timeLeft--;
+        document.getElementById('time').textContent = timeLeft;
 
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    clearInterval(timerInterval);
+    
+}
 
 
 
@@ -13,6 +28,8 @@ var timerInterval;
 startButton.addEventListener('click', function() {
 console.log('Game has commenced')
 currentQuestionIndex = 0;
+timeLeft = totalTime;
+startTimer();
 displayQuestion();
 })
 
@@ -124,8 +141,6 @@ function moveToNextQuestion() {
     if (currentQuestionIndex < questions.length) {
         displayQuestion();
     } else {
-        // End of quiz logic
-        // Display final score
-        // Example: alert("Quiz over! Your score: " + score);
+       endQuiz();
     }
 }
