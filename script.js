@@ -1,9 +1,11 @@
 //Select the start button
 var startButton = document.getElementById('startButton');
 var currentQuestionIndex = 0;
+var score = 0; 
 var totalTime = 60;
 var timeLeft = totalTime;
 var timerInterval;
+
 
 function startTimer() {
     timerInterval = setInterval(function(){
@@ -17,14 +19,33 @@ function startTimer() {
     }, 1000);
 }
 
+
 function endQuiz() {
     clearInterval(timerInterval);
-    
+
+    var quizContainer = document.getElementById('quizContainer');
+    quizContainer.innerHTML = '';
+
+    //Display end of quiz message and score
+    var endMessage = document.createElement('p');
+    endMessage.textContent = 'Quiz completed! Your final score is: ' + score;
+    quizContainer.appendChild(endMessage);
+
+    //add restart button
+    var restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart Quiz';
+    restartButton.addEventListener('click', function() {
+        console.log('Game has restarted')
+        currentQuestionIndex = 0;
+        timeLeft = totalTime;
+        startTimer();
+        displayQuestion(); 
+    });
+    quizContainer.appendChild(restartButton);
 }
 
 
-
-//Add Event listener
+//Main Event listener
 startButton.addEventListener('click', function() {
 console.log('Game has commenced')
 currentQuestionIndex = 0;
@@ -34,7 +55,7 @@ displayQuestion();
 })
 
 
-//Quiz questions in an array inside an object to be accesssed for the quiz
+//Quiz questions 
 const questions = [
     {
       question: "Which HTML tag is used to include an external JavaScript file?",
@@ -88,6 +109,7 @@ const questions = [
     },
   ];
   
+
 //Display questions
 function displayQuestion() {
     var quizContainer = document.getElementById('quizContainer');
@@ -115,9 +137,8 @@ function displayQuestion() {
     });
 }
 
-//initalize a score
-var score = 0; 
 
+//Handles choice selection/conditionals for right and wrong
 function handleChoiceSelection(choiceIndex, choiceButton) {
     var isCorrect = choiceIndex === questions[currentQuestionIndex].answer;
 
@@ -125,15 +146,23 @@ function handleChoiceSelection(choiceIndex, choiceButton) {
         score++;
         choiceButton.classList.add('correct-answer');
     } else {
+        timeLeft -= 5;
+        document.getElementById('time').textContent = timeLeft;
         choiceButton.classList.add('incorrect-answer');
+
+        if (timeLeft <= 0) {
+            endQuiz();
+            return;
+        }
     }
 
     //display feedback for a period of time
     setTimeout(function() {
         choiceButton.classList.remove(isCorrect ? 'correct-answer' : 'incorrect-answer');
         moveToNextQuestion();
-    }, 600); // Delay of 600 milliseconds
+    }, 500); // Delay of 600 milliseconds
 }
+
 
 //function to move to next questions
 function moveToNextQuestion() {
