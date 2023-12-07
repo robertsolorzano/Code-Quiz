@@ -16,12 +16,6 @@ The Code Quiz is a timed, multiple-choice quiz designed specifically for program
 3. **Beat the Clock**: Answer correctly and quickly. Time is of the essence!
 4. **View Your Score**: At the end of the quiz, see your score and check if you've made it to the high scores list.
 
-## Tech Stack
-- HTML
-- CSS
-- JavaScript
-- Bootstrap for styling
-
 ## Link
 [Code Quiz](https://robertsolorzano.github.io/Code-Quiz/)
 
