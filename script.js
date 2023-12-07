@@ -2,7 +2,7 @@
 var startButton = document.getElementById('startButton');
 var currentQuestionIndex = 0;
 var score = 0; 
-var totalTime = 90;
+var totalTime = 60;
 var timeLeft = totalTime;
 var timerInterval;
 
