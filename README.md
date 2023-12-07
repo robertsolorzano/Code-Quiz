@@ -27,7 +27,7 @@ The Code Quiz is a timed, multiple-choice quiz designed specifically for program
 
 ## Preview
 
-![](images/preview.jpeg)
+![](assets/images/preview.jpeg)
 
 ## Setup
 To run this project locally:
