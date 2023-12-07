@@ -228,7 +228,7 @@ document.getElementById('viewHighScores').addEventListener('click', function() {
     }
 });
 
-//displaying high scores
+//displaying high score
 function displayHighScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     var highScoresList = document.getElementById('highScoresList');

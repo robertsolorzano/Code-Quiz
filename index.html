@@ -32,13 +32,23 @@
     <!--Added Boostrap structure with with classes-->
     <!-- Main Container -->
     <div class="container mt-5">
-
-        <!-- Quiz Container -->
-        <div class="row mt-4">
+        <!-- Title and motto -->
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="display-4">Code Quiz</h1>
+                <p class="lead">
+                    <!--added i tag we learned in last class-->
+                    <i>Test your coding knowledge and challenge your limits!</i>
+                </p>
+        <!-- Start Quiz Button -->
+         <div class="row mt-4">
             <div class="col-md-8 offset-md-2">
                 <button id="startButton" class="btn btn-primary btn-lg btn-block">Start Quiz</button>
-                <div id="quizContainer" class="mt-4"></div>
             </div>
+        </div>
+
+        <div id="quizContainer" class="mt-4">
+            <!--Questions populate here-->
         </div>
 
         <!-- Score Modal -->
