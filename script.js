@@ -35,58 +35,117 @@ displayQuestion();
 //Quiz questions 
 const questions = [
     {
+      question: "Which HTML tag is used to define the structure of a web page?",
+      choices: ["<header>", "<body>", "<section>", "<html>"],
+      answer: 3, 
+    },
+    {
+      question: "What does CSS stand for?",
+      choices: ["Cascading Style Sheet", "Creative Style Selector", "Computer System Syntax", "Coding Style Script"],
+      answer: 0, 
+    },
+    {
+      question: "Which CSS property is used to change the text color of an element?",
+      choices: ["text-color", "color", "font-color", "text-style"],
+      answer: 1, 
+    },
+    {
+      question: "In JavaScript, how do you declare a variable?",
+      choices: ["var", "let", "const", "var, let, or const"],
+      answer: 3, 
+    },
+    {
+      question: "What is the purpose of the `<div>` tag in HTML?",
+      choices: ["To create a clickable link", "To define a division or a section", "To display an image", "To format text"],
+      answer: 1, 
+    },
+    {
+      question: "Which Bootstrap class is used to create a responsive navigation bar?",
+      choices: [".navbar", ".nav", ".nav-header", ".menu"],
+      answer: 0, 
+    },
+    {
+      question: "What is the jQuery library primarily used for?",
+      choices: ["Database management", "Web page styling", "Server-side scripting", "DOM manipulation"],
+      answer: 3, 
+    },
+    {
+      question: "Which HTML element is used to create a bullet list?",
+      choices: ["<ul>", "<li>", "<ol>", "<list>"],
+      answer: 0, 
+    },
+    {
+      question: "In JavaScript, what is the purpose of an 'if' statement?",
+      choices: ["To declare a variable", "To loop through an array", "To perform conditional execution", "To define a function"],
+      answer: 2, 
+    },
+    {
       question: "Which HTML tag is used to include an external JavaScript file?",
       choices: ["<script>", "<link>", "<style>", "<js>"],
-      answer: 0,
-    },
-    {
-      question: "In CSS, which property is used to set the background color of an element?",
-      choices: ["color", "background-color", "text-color", "fill-color"],
-      answer: 1,
-    },
-    {
-      question: "What is the correct syntax for creating a new HTML5 document?",
-      choices: ["<!DOCTYPE HTML5>", "<html5>", "<!DOCTYPE html>", "<html>"],
-      answer: 2,
-    },
-    {
-      question: "Which CSS framework is known for its responsive design components?",
-      choices: ["Bootstrap", "jQuery UI", "Foundation", "Semantic UI"],
-      answer: 0,
-    },
-    {
-      question: "In JavaScript, which function is used to fetch data from a server?",
-      choices: ["fetch()", "get()", "load()", "ajax()"],
-      answer: 0,
-    },
-    {
-      question: "Which jQuery method is used to hide an element with a sliding motion?",
-      choices: ["fadeOut()", "slideUp()", "hide()", "toggle()"],
-      answer: 0,
+      answer: 0, 
     },
     {
       question: "What does API stand for in Web development?",
       choices: ["Advanced Programming Interface", "Application Programming Interface", "Active Page Interaction", "All Purpose Integration"],
-      answer: 1,
+      answer: 1, 
+    },
+    {
+      question: "Which CSS property is used to control the spacing between elements?",
+      choices: ["margin", "padding", "border", "spacing"],
+      answer: 0, 
+    },
+    {
+      question: "What is the purpose of the 'console.log()' function in JavaScript?",
+      choices: ["To display a message on the webpage", "To create a pop-up dialog", "To print text to the printer", "To log data to the console"],
+      answer: 3,
     },
     {
       question: "Which HTML tag is used to create a hyperlink?",
       choices: ["<link>", "<a>", "<href>", "<url>"],
-      answer: 1,
+      answer: 1, 
     },
     {
-      question: "Which CSS selector is used to target an element with a specific class?",
-      choices: [".class", "#id", "element", "tag"],
+      question: "What is the primary role of CSS in web development?",
+      choices: ["Handling server-side logic", "Structuring the webpage", "Styling and formatting content", "Creating interactive animations"],
+      answer: 2,
+    },
+    {
+      question: "JavaScript is a ______-side scripting language.",
+      choices: ["server", "client", "both server and client", "neither server nor client"],
+      answer: 1, 
+    },
+    {
+      question: "To create an ordered list in HTML, you use the _____ tag.",
+      choices: ["<ol>", "<ul>", "<li>", "<ol>"],
+      answer: 0, 
+    },
+    {
+      question: "Which CSS property is used to add space inside the border of an element?",
+      choices: ["margin", "padding", "border-spacing", "spacing"],
+      answer: 1, 
+    },
+    {
+      question: "In JavaScript, what keyword is used to declare a function?",
+      choices: ["function", "method", "define", "execute"],
+      answer: 0, 
+    },
+    {
+      question: "What is the purpose of the 'DOCTYPE' declaration in HTML?",
+      choices: ["To define the document type and version", "To specify the background color of the page", "To create a hyperlink", "To format text"],
+      answer: 0, 
+    },
+    {
+      question: "Which CSS property is used to create rounded corners on elements?",
+      choices: ["border-radius", "corner-style", "round-corners", "border-style"],
       answer: 0,
     },
     {
-      question: "What is the purpose of the 'DOMContentLoaded' event in JavaScript?",
-      choices: ["To detect when the page has finished loading", "To detect when the page has started loading", "To detect when the user clicks a button", "To detect when an AJAX request is complete"],
+      question: "In JavaScript, what does 'NaN' stand for?",
+      choices: ["Not a Number", "New Assignment Number", "Null and Nothing", "Number and Null"],
       answer: 0,
     },
   ];
   
-
   function displayQuestion() {
     var quizContainer = document.getElementById('quizContainer');
     var questionObj = questions[currentQuestionIndex];
