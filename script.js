@@ -2,7 +2,7 @@
 var startButton = document.getElementById('startButton');
 var currentQuestionIndex = 0;
 var score = 0; 
-var totalTime = 60;
+var totalTime = 90;
 var timeLeft = totalTime;
 var timerInterval;
 
@@ -24,7 +24,7 @@ function startTimer() {
 //Main Event listener
 startButton.addEventListener('click', function() {
 console.log('Game has commenced')
-startButton.style.display = 'none' //hiding start button once quiz starts
+startButton.style.display = 'none' 
 currentQuestionIndex = 0;
 timeLeft = totalTime;
 startTimer();
@@ -84,66 +84,6 @@ const questions = [
       choices: ["<script>", "<link>", "<style>", "<js>"],
       answer: 0, 
     },
-    {
-      question: "What does API stand for in Web development?",
-      choices: ["Advanced Programming Interface", "Application Programming Interface", "Active Page Interaction", "All Purpose Integration"],
-      answer: 1, 
-    },
-    {
-      question: "Which CSS property is used to control the spacing between elements?",
-      choices: ["margin", "padding", "border", "spacing"],
-      answer: 0, 
-    },
-    {
-      question: "What is the purpose of the 'console.log()' function in JavaScript?",
-      choices: ["To display a message on the webpage", "To create a pop-up dialog", "To print text to the printer", "To log data to the console"],
-      answer: 3,
-    },
-    {
-      question: "Which HTML tag is used to create a hyperlink?",
-      choices: ["<link>", "<a>", "<href>", "<url>"],
-      answer: 1, 
-    },
-    {
-      question: "What is the primary role of CSS in web development?",
-      choices: ["Handling server-side logic", "Structuring the webpage", "Styling and formatting content", "Creating interactive animations"],
-      answer: 2,
-    },
-    {
-      question: "JavaScript is a ______-side scripting language.",
-      choices: ["server", "client", "both server and client", "neither server nor client"],
-      answer: 1, 
-    },
-    {
-      question: "To create an ordered list in HTML, you use the _____ tag.",
-      choices: ["<ol>", "<ul>", "<li>", "<ol>"],
-      answer: 0, 
-    },
-    {
-      question: "Which CSS property is used to add space inside the border of an element?",
-      choices: ["margin", "padding", "border-spacing", "spacing"],
-      answer: 1, 
-    },
-    {
-      question: "In JavaScript, what keyword is used to declare a function?",
-      choices: ["function", "method", "define", "execute"],
-      answer: 0, 
-    },
-    {
-      question: "What is the purpose of the 'DOCTYPE' declaration in HTML?",
-      choices: ["To define the document type and version", "To specify the background color of the page", "To create a hyperlink", "To format text"],
-      answer: 0, 
-    },
-    {
-      question: "Which CSS property is used to create rounded corners on elements?",
-      choices: ["border-radius", "corner-style", "round-corners", "border-style"],
-      answer: 0,
-    },
-    {
-      question: "In JavaScript, what does 'NaN' stand for?",
-      choices: ["Not a Number", "New Assignment Number", "Null and Nothing", "Number and Null"],
-      answer: 0,
-    },
   ];
   
   function displayQuestion() {
@@ -163,7 +103,7 @@ const questions = [
     questionObj.choices.forEach(function(choice, index){
         var choiceButton = document.createElement('button');
         choiceButton.textContent = choice;
-        choiceButton.classList.add('btn', 'btn-outline-primary', 'btn-block', 'mb-2'); //Bootstrap button classes
+        choiceButton.classList.add('btn', 'btn-outline-primary', 'btn-block', 'mb-2'); 
 
         //Attach an event listener to handle choice
         choiceButton.addEventListener('click', function() {
@@ -174,7 +114,7 @@ const questions = [
     });
 }
 
-//Updated with bootstrap styling
+
 //Handles choice selection/conditionals for right and wrong
 function handleChoiceSelection(choiceIndex, choiceButton) {
     var isCorrect = choiceIndex === questions[currentQuestionIndex].answer;
@@ -227,7 +167,7 @@ function moveToNextQuestion() {
 //End quiz function
 function endQuiz() {
     clearInterval(timerInterval);
-    startButton.style.display = 'block'; //display start button when quiz ends
+    startButton.style.display = 'block'; 
 
     document.getElementById('finalScore').textContent = score;
     var scoreModal = document.getElementById('scoreModal');
@@ -257,7 +197,7 @@ function saveScore(initials, score) {
 document.getElementById('saveScoreButton').addEventListener('click', function() {
     var userInitials = document.getElementById('initialsInput').value;
     if (userInitials) {
-        saveScore(userInitials, score); // Ensure saveScore is defined
+        saveScore(userInitials, score); 
         document.getElementById('scoreModal').style.display = 'none';
     } else {
         console.log('no initals entered')
@@ -283,7 +223,7 @@ document.getElementById('viewHighScores').addEventListener('click', function() {
     highScoresContainer.style.display = isDisplayed ? 'none' : 'block';
 
     if (!isDisplayed) {
-        displayHighScores(); // Call function to display high scores
+        displayHighScores();
     }
 });
 
