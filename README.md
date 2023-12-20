@@ -28,6 +28,11 @@ To run this project locally:
 1. Clone the repository to your local machine.
 2. Open the `index.html` file in a web browser.
 
+## Credits
+
+[Bootstrap Documentation/Examples](https://getbootstrap.com/docs/5.3/examples/)
+[Build a Quiz Application with HTML, CSS, and JavaScript | Step-by-Step Guide](https://www.codewithfaraz.com/content/161/build-a-quiz-application-with-html-css-and-javascript-step-by-step-guide)
+
 ## License
 Refer to MIT Licence 
 
