@@ -31,6 +31,7 @@ To run this project locally:
 ## Credits
 
 [Bootstrap Documentation/Examples](https://getbootstrap.com/docs/5.3/examples/)
+<br>
 [Build a Quiz Application with HTML, CSS, and JavaScript | Step-by-Step Guide](https://www.codewithfaraz.com/content/161/build-a-quiz-application-with-html-css-and-javascript-step-by-step-guide)
 
 ## License
